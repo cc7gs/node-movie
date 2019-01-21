@@ -50,6 +50,11 @@ console.log('开始执行...');
         })  
         //关闭浏览器
         browser.close();
-        console.log(result);
-        console.log(result.length,'length--------')
+        // console.log(result);
+        // console.log(result.length,'length--------')
+        
+        //将结果发送出去
+        process.send({result});
+        //退出进程
+        process.exit(0);
     })()
