@@ -1,9 +1,9 @@
 const Koa=require('koa');
-const {connect}=require('./database/init');
+const mongoose=require('mongoose');
+require('./database/schema/movie');
+const {connect,initSchemas}=require('./database/init');
 const views=require('koa-views');
 const {resolve} =require('path');
-
-
 
 const app=new Koa();
 app.use(views(resolve(__dirname + '/views'), {
@@ -12,6 +12,10 @@ app.use(views(resolve(__dirname + '/views'), {
 
 ;(async ()=>{
     await connect()
+    initSchemas();
+    const Movie=mongoose.model('Movie');
+    const Movies=await Movie.find({})
+    console.log(Movies);
 })()
 
 app.use(async (ctx,next)=>{

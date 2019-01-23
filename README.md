@@ -46,8 +46,36 @@
 > nanoid //可以生成随机id
 
 
+## MongoDB vs mysql
+|MongoDB|mysql|名称|
+|---|---|---|
+|document|record|记录|
+|collection|table|表|  
+|database|database|数据库| 
+### Mongoose
+ 是mongoDB的一个对象模型库,封装了mongoDB对文档的一些增删改查等常用方法,让nodejs操作mongoDB数据库变得更容易
+**Schema**
+是一种文件形式存储的数据库模型骨架,不具备数据库的操作能力,即定义数据类型
+例如:
+```javascript
+var PersonSchema=new mongoose.Schema({
+  name:String;
+})
+```
+**Model**
+由Schema构造生成的模型,具有抽象属性和行为的数据库操作
+```javascript
+var PersonModel=db.model('person',PersonSchema)
+```
+**entity**
+由Model创造的实体，他的操作也会影响数据库,可以操作数据库CRUD
 
-
+```javascript
+var personEntity=new PersonModel({
+  name:'kk'
+})
+```
+[原文传送门](https://cnodejs.org/topic/504b4924e2b84515770103dd)
 
 **git常用操作**
 ```
