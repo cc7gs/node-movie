@@ -39,7 +39,6 @@ exports.connect = () => {
     })
 }
 
-const initSchemas=()=>{
+exports.initSchemas=()=>{
     glob.sync(resolve(__dirname,'./schema','**/*.js')).forEach(require);
 }
-initSchemas();

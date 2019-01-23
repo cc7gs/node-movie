@@ -48,4 +48,3 @@ movieSchema.pre('save', next => {
     next();
 })
 mongoose.model('Movie', movieSchema);
-console.log('movie');

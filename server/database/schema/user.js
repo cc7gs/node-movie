@@ -117,4 +117,3 @@ userSchema.methods = {
     }
 }
 mongoose.model('User', userSchema);
-console.log('user');
