@@ -27,7 +27,7 @@ async function fetchMovie(item) {
         let moiveData = await fetchMovie(moive);
         try{
             moiveData=JSON.parse(moiveData);
-            console.log(moiveData);
+            console.log(moiveData,'movieData');
         }catch(error){
             console.log('转换异常',error);
         }

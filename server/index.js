@@ -1,12 +1,18 @@
 const Koa=require('koa');
-const app=new Koa();
+const {connect}=require('./database/init');
 const views=require('koa-views');
 const {resolve} =require('path');
-console.log(resolve(__dirname,'./views'));
 
+
+
+const app=new Koa();
 app.use(views(resolve(__dirname + '/views'), {
     extension: 'pug'    // 以 pug 模版为例
   }))
+
+;(async ()=>{
+    await connect()
+})()
 
 app.use(async (ctx,next)=>{
     await ctx.render('index',{
